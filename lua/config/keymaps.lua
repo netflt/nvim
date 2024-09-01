@@ -24,8 +24,8 @@ map("n", "<A-k>", "<C-w>k", opt)
 map("n", "<A-l>", "<C-w>l", opt)
 
 -- 左右比例控制
-map("n", "s,", ":vertical resize -20<CR>", opt)
-map("n", "s.", ":vertical resize +20<CR>", opt)
+-- map("n", "s,", ":vertical resize -20<CR>", opt)
+-- map("n", "s.", ":vertical resize +20<CR>", opt)
 -- 上下比例
 --map("n", "sj", ":resize +10<CR>", opt)
 --map("n", "sk", ":resize -10<CR>", opt)
