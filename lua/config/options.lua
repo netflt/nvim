@@ -15,5 +15,5 @@ vim.opt.expandtab = true
 vim.opt.listchars = "space:·"
 -- 关闭自动 format
 vim.g.autoformat = false
-
+vim.g.loaded_matchparen = true
 vim.diagnostic.enable(false)  --disable diagnostic on startup
