@@ -73,12 +73,12 @@ map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
 --dap debug
-map ("n",
-    "<leader>ds",
-    ":lua if vim.fn.filereadable('launch.json') then require('dap.ext.vscode').load_launchjs('launch.json', {lldb = {'c', 'cpp'}}) end<CR>"  
-    .. ":lua require('dap').continue()<CR>",
-    opt
-)
+--map ("n",
+--    "<leader>ds",
+--    ":lua if vim.fn.filereadable('launch.json') then require('dap.ext.vscode').load_launchjs('launch.json', {lldb = {'c', 'cpp'}}) end<CR>"  
+--    .. ":lua require('dap').continue()<CR>",
+--    opt
+--)
 
 map(
     "n",
@@ -86,8 +86,7 @@ map(
     ":lua require'dap'.close()<CR>"
       .. ":lua require'dap'.terminate()<CR>"
       .. ":lua require'dap.repl'.close()<CR>"
-      .. ":lua require'dapui'.close()<CR>"
-      .. "<C-w>o<CR>",
+      .. ":lua require'dapui'.close()<CR>",
     opt
   )
 
