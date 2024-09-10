@@ -32,8 +32,8 @@ map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 
 -- 快速滚动
-map("n", ";", "9k", opt)
-map("n", "'", "9j", opt)
+map("n", "'", "9k", opt)
+map("n", ";", "9j", opt)
 
 -- visual模式下缩进代码
 map("v", "<", "<gv", opt)
