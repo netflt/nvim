@@ -74,8 +74,7 @@ map(
     "<leader>de",
     ":lua require'dap'.close()<CR>"
         .. ":lua require'dap'.terminate()<CR>"
-        .. ":lua require'dap.repl'.close()<CR>"
-        .. ":lua require'dapui'.close()<CR>",
+        .. ":lua require'dap.repl'.close()<CR>",
     opt
 )
 
@@ -90,3 +89,4 @@ map("n", "<F11>", ":lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('
 map("n", "<F1>", ":lua require('dap.ui.variables').hover()<CR>", opt)
 map("v", "<F2>", ":lua require('dap.ui.variables').visual_hover()<CR>", opt)
 map("n", "<F3>", ":lua require('dap').clear_breakpoints()<CR>", opt)
+map("n", "<F4>", ":lua require('dapui').toggle()<CR>", opt)

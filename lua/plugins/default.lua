@@ -12,7 +12,7 @@ return {
         "LazyVim/LazyVim",
         tag = "v12.38.2",
         opts = {
-        colorscheme = 'github_dark',
+        colorscheme = 'github_dark_dimmed',
         },
     },
     {
