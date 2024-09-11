@@ -7,16 +7,22 @@
 return {
     {"catppuccin/nvim", enabled = false},
     {"folke/tokyonight.nvim", enabled = false},
-    { "projekt0n/github-nvim-theme", tag = 'v1.1.2' },
+    { "EdenEast/nightfox.nvim" },
     {
         "LazyVim/LazyVim",
         tag = "v12.38.2",
         opts = {
-        colorscheme = 'github_dark_dimmed',
+        colorscheme = 'terafox',
         },
     },
     {
         "nvim-treesitter/nvim-treesitter",
         opts = { ensure_installed = { "cpp" } },
     },
+    {
+        "nvim-telescope/telescope.nvim",
+        keys = {
+            { "<leader><space>" , ":", desc = "Switch Command mode",},
+        },
+    }
 }

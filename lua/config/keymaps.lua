@@ -21,8 +21,8 @@ map("n", "so", "<C-w>o", opt)
 map("n", "H", "<C-w>h", opt)
 map("n", "L", "<C-w>l", opt)
 -- 左右Tab切换
-map("n", "<C-j>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-k>", ":BufferLineCycleNext<CR>", opt)
+map("n", ";", ":BufferLineCyclePrev<CR>", opt)
+map("n", "'", ":BufferLineCycleNext<CR>", opt)
 
 -- 跳到行首行尾
 map('n', '<C-h>', '^', opt)
@@ -32,8 +32,8 @@ map("i", "<C-h>", "<ESC>I", opt)
 map("i", "<C-l>", "<ESC>A", opt)
 
 -- 快速滚动
-map("n", "'", "9k", opt)
-map("n", ";", "9j", opt)
+map("n", "<C-k>", "9k", opt)
+map("n", "<C-j>", "9j", opt)
 
 -- visual模式下缩进代码
 map("v", "<", "<gv", opt)
