@@ -7,6 +7,13 @@
 return {
     {"catppuccin/nvim", enabled = false},
     {"folke/tokyonight.nvim", enabled = false},
+    {"windwp/nvim-ts-autotag", enabled = false},
+    {"echasnovski/mini.ai", enabled = false},
+    {"folke/lazydev.nvim", enabled = false},
+    {"stevearc/conform.nvim", enabled = false},
+    {"Bilal2453/luvit-meta", enabled = false},
+    {"garymjr/nvim-snippets", enabled = false},
+    {"stevearc/dressing.nvim", enabled = false},
     { "EdenEast/nightfox.nvim" },
     {
         "LazyVim/LazyVim",
