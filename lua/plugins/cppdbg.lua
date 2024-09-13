@@ -22,7 +22,43 @@ return {
           dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
           end
-          dapui.setup()
+          dapui.setup({
+            layouts = {
+                    -- Changing the layout order will give more space to the first element
+                    {
+                        -- You can change the order of elements in the sidebar
+                        elements = {
+                            -- { id = "scopes", size = 0.25, },
+                            { id = 'stacks', size = 0.50 },
+                            { id = 'breakpoints', size = 0.25 },
+                            { id = 'watches', size = 0.25 },
+                        },
+                        size = 42,
+                        position = 'left', -- Can be "left" or "right"
+                    },
+                    {
+                        elements = {
+                            { id = 'repl', size = 0.60 },
+                            { id = 'console', size = 0.40 },
+                        },
+                        size = 8,
+                        position = 'bottom', -- Can be "bottom" or "top"
+                    },
+                },
+                controls = {
+                        icons = {
+                            pause = '',
+                            play = '',
+                            step_over = '',
+                            step_into = '',
+                            step_out = '',
+                            step_back = '',
+                            run_last = '',
+                            terminate = '',
+                            disconnect = '',
+                        },
+                 },
+            })
         end,
     },
     {
@@ -32,14 +68,12 @@ return {
         config = function()
             local dap = require("dap")
             dap.adapters.lldb = {
+                id = 'lldb',
                 type = 'executable',
                 command = '/opt/homebrew/opt/llvm@18/bin/lldb-dap',
                 name = 'lldb'
             }
-
            
-            --dap.configurations.c = dap.configurations.cpp
-            --dap.configurations.rust = dap.configurations.cpp
             --mapping = require("config.keymaps").mapDAP()
             vim.api.nvim_set_hl(0, "red",   { fg = "#ff0000" }) 
             vim.api.nvim_set_hl(0, "green",  { fg = "#9ece6a" }) 
