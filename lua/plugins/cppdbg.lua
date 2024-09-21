@@ -2,9 +2,9 @@ return {
     {
         'rcarriga/nvim-dap-ui',
         dependencies = {
-          'mfussenegger/nvim-dap',
-          'nvim-neotest/nvim-nio', -- Assuming this is also a dependency you want to include
-          'theHamsta/nvim-dap-virtual-text'
+            'mfussenegger/nvim-dap',
+            'nvim-neotest/nvim-nio',  
+            'theHamsta/nvim-dap-virtual-text'
         },
         opts = {},
       
@@ -23,6 +23,15 @@ return {
             dapui.close()
           end
           dapui.setup({
+            mappings = {
+                -- Use a table to apply multiple mappings
+                expand = { "<CR>" },
+                open = {"o", "<2-LeftMouse>" },
+                remove = "d",
+                edit = "e",
+                repl = "r",
+                toggle = "t",
+            },
             layouts = {
                     -- Changing the layout order will give more space to the first element
                     {
