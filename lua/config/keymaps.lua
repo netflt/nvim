@@ -62,9 +62,32 @@ map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
 --git diffview
-map("n", "<leader>gf", ":DiffviewFileHistory % <CR>", opt)
 map("n", "<leader>gv", ":DiffviewOpen<CR>", opt)
 map("n", "<leader>go", ":DiffviewClose<CR>", opt)
+
+function OpenCurrentChanges()
+    local api = vim.api
+    local cache = require('gitsigns.cache').cache
+    local bufnr = api.nvim_get_current_buf()
+    local bcache = cache[bufnr]
+    if not bcache then
+        api.nvim_command('DiffviewFileHistory %')
+        return
+    end
+
+    bcache:get_blame()
+    local blame = assert(bcache.blame)
+    local blm_win = api.nvim_get_current_win()
+    local cursor = unpack(api.nvim_win_get_cursor(blm_win))
+    local cur_sha = blame[cursor].commit.abbrev_sha
+    if string.match(cur_sha, "00000000") then
+        api.nvim_command('DiffviewFileHistory %')
+    else
+        api.nvim_command('DiffviewFileHistory % --range='.. cur_sha)
+    end
+end
+
+map("n", "<leader>gf", ":lua OpenCurrentChanges()<CR>", opt)
 
 --dap debug
 --map ("n",
