@@ -57,7 +57,7 @@ return {
                 controls = {
                         icons = {
                             pause = '',
-                            play = '',
+                            play = '',
                             step_over = '',
                             step_into = '',
                             step_out = '',
