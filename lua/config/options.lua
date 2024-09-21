@@ -16,3 +16,4 @@ vim.opt.listchars = "space:·"
 -- 关闭自动 format
 vim.g.autoformat = false
 vim.diagnostic.enable(false) --disable diagnostic on startup
+vim.g.gitblame_display_virtual_text = 0 -- Disable virtual text

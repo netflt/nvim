@@ -40,7 +40,7 @@ return {
                             -- { id = "scopes", size = 0.25, },
                             { id = 'stacks', size = 0.50 },
                             { id = 'breakpoints', size = 0.25 },
-                            { id = 'watches', size = 0.25 },
+                            --{ id = 'watches', size = 0.25 },
                         },
                         size = 42,
                         position = 'left', -- Can be "left" or "right"
