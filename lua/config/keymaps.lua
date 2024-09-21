@@ -107,6 +107,7 @@ end
 
 map("n", "<leader>gf", ":lua OpenCurrentFileChange()<CR>", opt)
 map("n", "<leader>gc", ":lua OpenCurrentCommit()<CR>", opt)
+map("n", "<leader>gu", ":DiffviewOpen<CR>", opt)
 --dap debug
 --map ("n",
 --    "<leader>ds",
