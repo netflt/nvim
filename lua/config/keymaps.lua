@@ -66,18 +66,6 @@ map("n", "<leader>gf", ":DiffviewFileHistory % <CR>", opt)
 map("n", "<leader>gv", ":DiffviewOpen<CR>", opt)
 map("n", "<leader>go", ":DiffviewClose<CR>", opt)
 
-local function open_git_log()
-    local git_blame = require('gitblame')
-    if git_blame.is_blame_text_available() then
-        git_blame.get_sha(function(sha)
-            if is_valid_sha(sha) then
-                --utils.log("Unable to open commit URL as SHA is empty")
-            end
-        end)
-    end
-end
-
---map("n", "<leader>gv",  opt)
 --dap debug
 --map ("n",
 --    "<leader>ds",
