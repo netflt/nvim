@@ -124,8 +124,9 @@ map(
         .. ":lua require('dapui').close()<CR>",
     opt
 )
+map("n", "<leader>dc", ":lua require('dap').clear_breakpoints()<CR>", opt)
+map("n", "<leader>dv", ":lua require('dapui').toggle()<CR>", opt)
 
-map("n", "<F1>", ":lua require('dapui').toggle()<CR>", opt)
 map("n", "<F5>", ":lua require('dap').continue()<CR>", opt)
 map("n", "<F6>", ":lua require('dap').step_over()<CR>", opt)
 map("n", "<F7>", ":lua require('dap').step_into()<CR>", opt)
@@ -134,6 +135,3 @@ map("n", "<F8>", ":lua require('dap').step_out()<CR>", opt)
 map("n", "<F9>", ":lua require('dap').toggle_breakpoint()<CR>", opt)
 map("n", "<F10>", ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opt)
 map("n", "<F11>", ":lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>", opt)
-map("v", "<F2>", ":lua require('dap.ui.variables').visual_hover()<CR>", opt)
-map("n", "<F3>", ":lua require('dap').clear_breakpoints()<CR>", opt)
-map("n", "<F4>", ":lua require('dap.ui.variables').hover()<CR>", opt)
