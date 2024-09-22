@@ -19,7 +19,7 @@ return {
         "LazyVim/LazyVim",
         tag = "v12.38.2",
         opts = {
-        colorscheme = 'terafox',
+            colorscheme = 'terafox',
         },
     },
     {
@@ -31,5 +31,22 @@ return {
         keys = {
             { "<leader><space>" , ":", desc = "Switch Command mode",},
         },
-    }
+    },
+    {
+        "RRethy/vim-illuminate"
+    },
+    {
+        "rmagatti/goto-preview",
+        event = BufReadPre,
+        config = function()
+            require("goto-preview").setup({
+                width = 120,
+                height = 25,
+                default_mappings = true,
+                debug = false,
+                opacity = nil,
+                post_open_hook = nil, 
+            })
+        end,
+    },
 }
