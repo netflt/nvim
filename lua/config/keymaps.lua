@@ -62,9 +62,6 @@ map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
 --git diffview
-map("n", "<leader>gv", ":DiffviewOpen<CR>", opt)
-map("n", "<leader>go", ":DiffviewClose<CR>", opt)
-
 function GetCommitSHA()
     local api = vim.api
     local cache = require('gitsigns.cache').cache
@@ -105,9 +102,11 @@ function OpenCurrentCommit()
     end
 end
 
+map("n", "<leader>gv", ":DiffviewOpen<CR>", opt)
+map("n", "<leader>go", ":DiffviewClose<CR>", opt)
 map("n", "<leader>gf", ":lua OpenCurrentFileChange()<CR>", opt)
 map("n", "<leader>gc", ":lua OpenCurrentCommit()<CR>", opt)
-map("n", "<leader>gu", ":DiffviewOpen<CR>", opt)
+
 --dap debug
 --map ("n",
 --    "<leader>ds",

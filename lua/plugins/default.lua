@@ -12,7 +12,6 @@ return {
     {"folke/lazydev.nvim", enabled = false},
     {"stevearc/conform.nvim", enabled = false},
     {"Bilal2453/luvit-meta", enabled = false},
-    {"garymjr/nvim-snippets", enabled = false},
     {"stevearc/dressing.nvim", enabled = false},
     { "EdenEast/nightfox.nvim" },
     {
@@ -33,7 +32,8 @@ return {
         },
     },
     {
-        "RRethy/vim-illuminate"
+        "RRethy/vim-illuminate",
+        event = "VeryLazy"
     },
     {
         "rmagatti/goto-preview",
