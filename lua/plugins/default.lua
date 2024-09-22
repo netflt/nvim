@@ -5,20 +5,10 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-    {"catppuccin/nvim", enabled = false},
-    {"folke/tokyonight.nvim", enabled = false},
-    {"windwp/nvim-ts-autotag", enabled = false},
-    {"echasnovski/mini.ai", enabled = false},
-    {"folke/lazydev.nvim", enabled = false},
-    {"stevearc/conform.nvim", enabled = false},
-    {"Bilal2453/luvit-meta", enabled = false},
-    {"stevearc/dressing.nvim", enabled = false},
-    { "EdenEast/nightfox.nvim" },
     {
-        "LazyVim/LazyVim",
-        tag = "v12.38.2",
+        "netflt/LazyVim",
         opts = {
-            colorscheme = 'terafox',
+            colorscheme = 'nordfox',
         },
     },
     {
