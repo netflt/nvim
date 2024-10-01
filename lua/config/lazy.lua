@@ -26,6 +26,7 @@ require("lazy").setup({
             vim.cmd.hi 'Comment gui=none'
             end,
         },
+        { "nvim-tree/nvim-web-devicons" },
         -- add LazyVim and import its plugins
         { 
             "LazyVim/LazyVim", 
