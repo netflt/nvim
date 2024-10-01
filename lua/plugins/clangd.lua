@@ -1,36 +1,6 @@
 
 return {
     {
-        "p00f/clangd_extensions.nvim",
-        lazy = true,
-        config = function() end,
-        opts = {
-          inlay_hints = {
-            inline = true,
-          },
-          ast = {
-            --These require codicons (https://github.com/microsoft/vscode-codicons)
-            role_icons = {
-              type = "",
-              declaration = "",
-              expression = "",
-              specifier = "",
-              statement = "",
-              ["template argument"] = "",
-            },
-            kind_icons = {
-              Compound = "",
-              Recovery = "",
-              TranslationUnit = "",
-              PackExpansion = "",
-              TemplateTypeParm = "",
-              TemplateTemplateParm = "",
-              TemplateParamObject = "",
-            },
-          },
-        },
-    },
-    {
         "neovim/nvim-lspconfig",
         opts = {
             inlay_hints = { enabled = false },
@@ -94,13 +64,6 @@ return {
                 clangdFileStatus = true,
               },
             },
-          },
-          setup = {
-            clangd = function(_, opts)
-              local clangd_ext_opts = LazyVim.opts("clangd_extensions.nvim")
-              require("clangd_extensions").setup(vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = opts }))
-              return false
-            end,
           },
         },
     },
