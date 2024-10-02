@@ -44,10 +44,10 @@ map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
 -- jump to define
-map("n", "<leader>j", "<C-]>", opt)
-map("v", "<leader>j", "<C-]>", opt)
-map("n", "<leader>k", "<C-o>", opt)
-map("v", "<leader>k", "<C-o]>", opt)
+-- map("n", "<leader>j", "<C-]>", opt)
+-- map("v", "<leader>j", "<C-]>", opt)
+-- map("n", "<leader>k", "<C-o>", opt)
+-- map("v", "<leader>k", "<C-o]>", opt)
 
 -- 退出
 map("n", "q", ":q<CR>", opt)
@@ -61,7 +61,7 @@ map("n", "<leader>cg", ":CMakeGenerate<CR>", opt)
 map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
--- map("n", "<leader>gv", ":DiffviewOpen<CR>", opt)
+--map("n", "<leader>gv", "<cmd>VGit project_diff_preview<CR>", opt)
 -- map("n", "<leader>go", ":DiffviewClose<CR>", opt)
 -- map("n", "<leader>gf", ":lua OpenCurrentFileChange()<CR>", opt)
 -- map("n", "<leader>gc", ":lua OpenCurrentCommit()<CR>", opt)
