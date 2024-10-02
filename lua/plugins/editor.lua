@@ -18,7 +18,6 @@ return {
     { "mfussenegger/nvim-lint", enabled = false },
     { "nvimdev/dashboard-nvim", enabled = false },
     { "windwp/nvim-ts-autotag", enabled = false },
-    { "garymjr/nvim-snippets", enabled = false },
     { "echasnovski/mini.icons", enabled = false },
     {
         "nvim-treesitter/nvim-treesitter",
