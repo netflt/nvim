@@ -6,9 +6,19 @@ return {
             'mfussenegger/nvim-dap',
             'nvim-neotest/nvim-nio',  
         },
-        opts = {},
+        opts = {
+            mappings = {
+                -- Use a table to apply multiple mappings
+                expand = { "<CR>" },
+                open = {"o", "<2-LeftMouse>" },
+                remove = "d",
+                edit = "e",
+                repl = "r",
+                toggle = "t",
+            },
+        },
       
-        config = function()
+        config = function(_, opts)
           local dap, dapui = require 'dap', require 'dapui'
           dap.listeners.before.attach.dapui_config = function()
             dapui.open()
@@ -22,52 +32,7 @@ return {
           dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
           end
-          dapui.setup({
-            mappings = {
-                -- Use a table to apply multiple mappings
-                expand = { "<CR>" },
-                open = {"o", "<2-LeftMouse>" },
-                remove = "d",
-                edit = "e",
-                repl = "r",
-                toggle = "t",
-            },
-            layouts = {
-                    -- Changing the layout order will give more space to the first element
-                    {
-                        -- You can change the order of elements in the sidebar
-                        elements = {
-                            -- { id = "scopes", size = 0.25, },
-                            { id = 'stacks', size = 0.50 },
-                            { id = 'breakpoints', size = 0.25 },
-                            --{ id = 'watches', size = 0.25 },
-                        },
-                        size = 42,
-                        position = 'left', -- Can be "left" or "right"
-                    },
-                    {
-                        elements = {
-                            { id = 'repl', size = 0.60 },
-                            { id = 'console', size = 0.40 },
-                        },
-                        size = 8,
-                        position = 'bottom', -- Can be "bottom" or "top"
-                    },
-                },
-                controls = {
-                        icons = {
-                            pause = '',
-                            play = '',
-                            step_over = '',
-                            step_into = '',
-                            step_out = '',
-                            step_back = '',
-                            run_last = '',
-                            terminate = '',
-                            disconnect = '',
-                        },
-                 },
-            })
+          dapui.setup(opts)
         end,
     },
     {
