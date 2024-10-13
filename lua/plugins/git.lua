@@ -13,6 +13,7 @@ return {
             set_extmark_options = {
                 hl_mode = "combine"
             },
+            date_format = "%r",
             delay = 100
         }
     }

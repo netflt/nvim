@@ -74,8 +74,7 @@ function DiffviewHistory()
     require('gitblame').get_sha(
         function(sha)
             if is_valid_sha(sha) then
-                local cur_sha = string.sub(sha, 1, 8)
-                api.nvim_command('DiffviewFileHistory % --range='.. cur_sha)
+                api.nvim_command('DiffviewFileHistory % --range='.. sha)
             else
                 print("Can't find a valid commit sha")
             end
@@ -88,8 +87,7 @@ function DiffviewCurrentCommit()
     require('gitblame').get_sha(
         function(sha)
             if is_valid_sha(sha) then
-                local cur_sha = string.sub(sha, 1, 8)
-                api.nvim_command('DiffviewOpen ' .. cur_sha .. '^!')
+                api.nvim_command('DiffviewOpen ' .. sha)
             else
                 print("Can't find a valid commit sha")
             end
