@@ -75,22 +75,17 @@ end
 function GetCommitSHA()
     local line_number = vim.fn.line(".")
     local file_path = vim.fn.shellescape(vim.fn.expand("%:p", nil, nil))
-    local dir_path = vim.fn.shellescape(vim.fn.expand("%:h", nil, nil))
-    local command = "git -C " .. dir_path .. " --no-pager blame --line-porcelain -L "
-        .. line_number .. " -- " .. file_path 
+    local command = "git blame -L "
+        .. line_number .. "," .. line_number .. " " .. file_path 
 
     local result = vim.fn.system(command)
-    local lines = split_string(result, "\n")
-
-    local hash = vim.fn.matchstr(lines[1], "\\c[0-9a-f]\\{40}")
-    if vim.fn.empty(hash) == 1 then
+    local cur_sha = vim.fn.matchstr(result, "\\c[0-9a-f]\\{8}")
+    if vim.fn.empty(cur_sha) == 1 then
         return ""
     end
-    local cur_sha = string.sub(hash, 1,7)
     if string.match(cur_sha, "0000000") then
         return ""
     end 
-    print(cur_sha)
 
     return cur_sha
 end
