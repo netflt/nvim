@@ -77,7 +77,7 @@ function DiffviewHistory()
                 local cur_sha = string.sub(sha, 1, 8)
                 api.nvim_command('DiffviewFileHistory % --range='.. cur_sha)
             else
-                api.nvim_command('DiffviewFileHistory %')
+                print("Can't find a valid commit sha")
             end
         end
     )
@@ -91,7 +91,7 @@ function DiffviewCurrentCommit()
                 local cur_sha = string.sub(sha, 1, 8)
                 api.nvim_command('DiffviewOpen ' .. cur_sha .. '^!')
             else
-                api.nvim_command('DiffviewOpen')
+                print("Can't find a valid commit sha")
             end
         end
     )
