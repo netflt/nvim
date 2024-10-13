@@ -1,19 +1,20 @@
 return {
     {
-        'sindrets/diffview.nvim',
-        event = "VeryLazy"
-    },
-    {
         "lewis6991/gitsigns.nvim",
         enabled = false
     },
     {
-        "braxtons12/blame_line.nvim",
-        config = function()
-            require("blame_line").setup {
-                delay = 50,
-            }
-        end
+        'sindrets/diffview.nvim',
+        event = "VeryLazy"
+    },
+    {
+        "f-person/git-blame.nvim",
+        opts = {
+            set_extmark_options = {
+                hl_mode = "combine"
+            },
+            delay = 100
+        }
     }
 
 }

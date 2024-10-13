@@ -62,58 +62,46 @@ map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
 
-function split_string (_string, separator)
-    separator = separator or "%s"
-    local _table = {}
-    for str in string.gmatch(_string, "([^" .. separator .. "]+)") do
-        table.insert(_table, str)
-    end
-
-    return _table
+---@param sha string?
+---@return boolean
+local function is_valid_sha(sha)
+    local empty_sha = "0000000000000000000000000000000000000000"
+    return sha ~= nil and sha ~= "" and sha ~= empty_sha
 end
 
-function GetCommitSHA()
-    local line_number = vim.fn.line(".")
-    local file_path = vim.fn.shellescape(vim.fn.expand("%:p", nil, nil))
-    local command = "git blame -L "
-        .. line_number .. "," .. line_number .. " " .. file_path 
-
-    local result = vim.fn.system(command)
-    local cur_sha = vim.fn.matchstr(result, "\\c[0-9a-f]\\{8}")
-    if vim.fn.empty(cur_sha) == 1 then
-        return ""
-    end
-    if string.match(cur_sha, "0000000") then
-        return ""
-    end 
-
-    return cur_sha
-end
-
-function OpenCurrentFileChange()
-        local api = vim.api
-        local cur_sha = GetCommitSHA()
-        if cur_sha == "" then
-            api.nvim_command('DiffviewFileHistory %')
-        else
-            api.nvim_command('DiffviewFileHistory % --range='.. cur_sha)
+function DiffviewHistory()
+    local api = vim.api
+    require('gitblame').get_sha(
+        function(sha)
+            if is_valid_sha(sha) then
+                local cur_sha = string.sub(sha, 1, 8)
+                api.nvim_command('DiffviewFileHistory % --range='.. cur_sha)
+            else
+                api.nvim_command('DiffviewFileHistory %')
+            end
         end
+    )
 end
 
-function OpenCurrentCommit()
-        local api = vim.api
-        local cur_sha = GetCommitSHA()
-        if cur_sha == "" then
-            api.nvim_command('DiffviewOpen')
-        else
-            api.nvim_command('DiffviewOpen ' .. cur_sha .. '^!')
+function DiffviewCurrentCommit()
+    local api = vim.api
+    require('gitblame').get_sha(
+        function(sha)
+            if is_valid_sha(sha) then
+                local cur_sha = string.sub(sha, 1, 8)
+                api.nvim_command('DiffviewOpen ' .. cur_sha .. '^!')
+            else
+                api.nvim_command('DiffviewOpen')
+            end
         end
+    )
 end
 
 
 map("n", "<leader>go", ":DiffviewClose<CR>", opt)
-map("n", "<leader>gh", ":lua OpenCurrentFileChange()<CR>", opt)
-map("n", "<leader>gd", ":lua OpenCurrentCommit()<CR>", opt)
+map("n", "<leader>gd", ":DiffviewOpen<CR>", opt)
+map("n", "<leader>gh", ":lua DiffviewHistory()<CR>", opt)
+map("n", "<leader>gc", ":lua DiffviewCurrentCommit()<CR>", opt)
 
 --dap debug
 --map ("n",
