@@ -99,7 +99,7 @@ end
 map("n", "<leader>go", ":DiffviewClose<CR>", opt)
 map("n", "<leader>gd", ":DiffviewOpen<CR>", opt)
 map("n", "<leader>gh", ":lua DiffviewHistory()<CR>", opt)
-map("n", "<leader>gc", ":lua DiffviewCurrentCommit()<CR>", opt)
+map("n", "<leader>gH", ":lua DiffviewCurrentCommit()<CR>", opt)
 
 --dap debug
 --map ("n",
