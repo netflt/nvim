@@ -61,10 +61,64 @@ map("n", "<leader>cg", ":CMakeGenerate<CR>", opt)
 map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
---map("n", "<leader>gv", "<cmd>VGit project_diff_preview<CR>", opt)
--- map("n", "<leader>go", ":DiffviewClose<CR>", opt)
--- map("n", "<leader>gf", ":lua OpenCurrentFileChange()<CR>", opt)
--- map("n", "<leader>gc", ":lua OpenCurrentCommit()<CR>", opt)
+
+function split_string (_string, separator)
+    separator = separator or "%s"
+    local _table = {}
+    for str in string.gmatch(_string, "([^" .. separator .. "]+)") do
+        table.insert(_table, str)
+    end
+
+    return _table
+end
+
+function GetCommitSHA()
+    local line_number = vim.fn.line(".")
+    local file_path = vim.fn.shellescape(vim.fn.expand("%:p", nil, nil))
+    local dir_path = vim.fn.shellescape(vim.fn.expand("%:h", nil, nil))
+    local command = "git -C " .. dir_path .. " --no-pager blame --line-porcelain -L "
+        .. line_number .. " -- " .. file_path 
+
+    local result = vim.fn.system(command)
+    local lines = split_string(result, "\n")
+
+    local hash = vim.fn.matchstr(lines[1], "\\c[0-9a-f]\\{40}")
+    if vim.fn.empty(hash) == 1 then
+        return ""
+    end
+    local cur_sha = string.sub(hash, 1,7)
+    if string.match(cur_sha, "0000000") then
+        return ""
+    end 
+    print(cur_sha)
+
+    return cur_sha
+end
+
+function OpenCurrentFileChange()
+        local api = vim.api
+        local cur_sha = GetCommitSHA()
+        if cur_sha == "" then
+            api.nvim_command('DiffviewFileHistory %')
+        else
+            api.nvim_command('DiffviewFileHistory % --range='.. cur_sha)
+        end
+end
+
+function OpenCurrentCommit()
+        local api = vim.api
+        local cur_sha = GetCommitSHA()
+        if cur_sha == "" then
+            api.nvim_command('DiffviewOpen')
+        else
+            api.nvim_command('DiffviewOpen ' .. cur_sha .. '^!')
+        end
+end
+
+
+map("n", "<leader>go", ":DiffviewClose<CR>", opt)
+map("n", "<leader>gh", ":lua OpenCurrentFileChange()<CR>", opt)
+map("n", "<leader>gd", ":lua OpenCurrentCommit()<CR>", opt)
 
 --dap debug
 --map ("n",
