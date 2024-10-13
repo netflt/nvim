@@ -13,9 +13,10 @@ return {
             set_extmark_options = {
                 hl_mode = "combine"
             },
-            message_template = '  <author> • <date> • <summary>',
+            message_template = '  <author> • <date>, <summary>',
             date_format = "%r",
             delay = 100,
+            message_when_not_committed = '  <Not Committed Yet !>',
             highlight_group = "LineNr"
         }
     }
