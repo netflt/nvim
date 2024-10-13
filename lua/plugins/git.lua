@@ -15,7 +15,8 @@ return {
             },
             message_template = '  <author> • <date> • <summary>',
             date_format = "%r",
-            delay = 100
+            delay = 100,
+            highlight_group = "LineNr"
         }
     }
 
