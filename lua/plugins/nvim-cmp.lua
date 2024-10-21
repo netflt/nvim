@@ -9,6 +9,9 @@ return {
             ghost_text = false, --隐藏编辑时默认补全的内容,否则影响可读性 
         },
         preselect = require("cmp").PreselectMode.None,
+        completion = {
+          completeopt = "menu,menuone,noinsert,noselect",
+        },
         mapping = require("cmp").mapping.preset.insert({
           ["<tab>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior.Insert }),
         }),
