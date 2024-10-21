@@ -19,30 +19,31 @@ return {
     { "nvimdev/dashboard-nvim", enabled = false },
     { "windwp/nvim-ts-autotag", enabled = false },
     { "echasnovski/mini.icons", enabled = false },
+    { "nvim-treesitter/nvim-treesitter-textobjects", enabled = false },
+    { 
+        'kevinhwang91/nvim-ufo', 
+        dependencies = 'kevinhwang91/promise-async',
+        opts = {
+        },
+        config = function(_, opts)
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.foldingRange = {
+                dynamicRegistration = false,
+                lineFoldingOnly = true
+            }
+            local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+            for _, ls in ipairs(language_servers) do
+                require('lspconfig')[ls].setup({
+                    capabilities = capabilities
+                    -- you can add other fields for setting up lsp server in this table
+                })
+            end
+            require('ufo').setup(opts)
+        end
+    },
     {
         "nvim-treesitter/nvim-treesitter",
-        event = "VeryLazy",
-        opts = {
-            ensure_installed = { "cpp", "c", "json", "bash", "css", "vim", "lua", "javascript", "typescript", "tsx" },
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            -- 启用增量选择模块
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<CR>",
-                    node_incremental = "<CR>",
-                    node_decremental = "<BS>",
-                    scope_incremental = "<TAB>",
-                },
-            },
-            -- 启用代码缩进模块 (=)
-            indent = {
-                enable = true,
-            },
-        },
+        enabled = false,
     },
     {
         "nvim-telescope/telescope.nvim",
