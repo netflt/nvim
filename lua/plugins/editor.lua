@@ -20,6 +20,7 @@ return {
     { "windwp/nvim-ts-autotag", enabled = false },
     { "echasnovski/mini.icons", enabled = false },
     { "nvim-treesitter/nvim-treesitter-textobjects", enabled = false },
+    { "nvim-treesitter/nvim-treesitter", enabled = false } ,
     { "folke/ts-comments.nvim", enabled = false },
     { 
         'kevinhwang91/nvim-ufo', 
@@ -29,7 +30,7 @@ return {
         config = function(_, opts)
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities.textDocument.foldingRange = {
-                dynamicRegistration = false,
+                dynamicRegistration = true,
                 lineFoldingOnly = true
             }
             local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
@@ -41,10 +42,6 @@ return {
             end
             require('ufo').setup(opts)
         end
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        enabled = false,
     },
     {
         "nvim-telescope/telescope.nvim",

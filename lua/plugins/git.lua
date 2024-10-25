@@ -1,9 +1,5 @@
 return {
     {
-        "lewis6991/gitsigns.nvim",
-        enabled = false
-    },
-    {
         'sindrets/diffview.nvim',
         event = "VeryLazy",
         opts = {
@@ -20,16 +16,22 @@ return {
         }
     },
     {
-        "f-person/git-blame.nvim",
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
         opts = {
-            set_extmark_options = {
-                hl_mode = "combine"
+            signs_staged_enable = false,
+            signcolumn = false,
+            current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+            current_line_blame_opts = {
+                virt_text = true,
+                virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+                delay = 100,
+                ignore_whitespace = false,
+                virt_text_priority = 100,
+                use_focus = true,
             },
-            message_template = '     <<author>> • <date>, <summary>',
-            date_format = "%r",
-            delay = 100,
-            message_when_not_committed = '     <Not Committed Yet !>',
-            highlight_group = "LineNr"
-        }
+            current_line_blame_formatter = ' [<author>] • <author_time:%R>, <summary>',
+            current_line_blame_formatter_nc = ' <Not Committed Yet !>',
+        },
     },
 }

@@ -20,5 +20,5 @@ vim.opt.fillchars = {
     vert = "▕", -- alternatives │
     diff = " ", -- alternatives = ⣿ ░ ─
     foldclose = "",
-  }
+}
 
