@@ -61,15 +61,6 @@ map("n", "<leader>cg", ":CMakeGenerate<CR>", opt)
 map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
 map("n", "<leader>ci", ":CMakeInstall<CR>", opt)
 
-
----@param sha string?
----@return boolean
-local function is_valid_sha(sha)
-    local empty_sha = "0000000000000000000000000000000000000000"
-    return sha ~= nil and sha ~= "" and sha ~= empty_sha
-end
-
-
 function GetCommitSHA()
     local api = vim.api
 

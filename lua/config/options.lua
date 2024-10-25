@@ -19,6 +19,5 @@ vim.diagnostic.enable(false) --disable diagnostic on startup
 vim.opt.fillchars = {
     vert = "▕", -- alternatives │
     diff = " ", -- alternatives = ⣿ ░ ─
-    foldclose = "",
 }
 
