@@ -33,5 +33,9 @@ return {
             current_line_blame_formatter = '     [<author>] • <author_time:%R>, <summary>',
             current_line_blame_formatter_nc = '     <Not Committed Yet !>',
         },
+        config = function(_, opts)
+            require('gitsigns').setup(opts)
+            vim.api.nvim_command('highlight! link GitSignsCurrentLineBlame Comment')
+        end
     },
 }
