@@ -43,6 +43,7 @@ map("v", ">", ">gv", opt)
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
+map("n", "<leader>tt", "<cmd>split <bar> terminal<CR>", opt)
 -- jump to define
 -- map("n", "<leader>j", "<C-]>", opt)
 -- map("v", "<leader>j", "<C-]>", opt)
@@ -103,9 +104,9 @@ function DiffviewCurrentCommit()
 end
 
 map("n", "go", ":DiffviewClose<CR>", opt)
-map("n", "gd", ":DiffviewOpen<CR>", opt)
+map("n", "gh", ":DiffviewOpen<CR>", opt)
 map("n", "gb", ":lua DiffviewHistory()<CR>", opt)
-map("n", "gh", ":lua DiffviewCurrentCommit()<CR>", opt)
+map("n", "gB", ":lua DiffviewCurrentCommit()<CR>", opt)
 
 --dap debug
 --map ("n",
