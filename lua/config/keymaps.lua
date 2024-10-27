@@ -99,7 +99,7 @@ function DiffviewCurrentCommit()
     if cur_sha == "" then
         print("Can't find a valid commit sha")
     else  
-        api.nvim_command('DiffviewOpen ' .. cur_sha)
+        api.nvim_command('DiffviewOpen ' .. cur_sha .. "^!")
     end 
 end
 
