@@ -50,10 +50,6 @@ return {
         },
     },
     {
-        "RRethy/vim-illuminate",
-        event = "VeryLazy"
-    },
-    {
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {

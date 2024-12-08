@@ -18,7 +18,6 @@ return {
           servers = {
             -- Ensure mason installs the server
             clangd = {
-        
               root_dir = function(fname)
                 return require("lspconfig.util").root_pattern(
                   ".git",
@@ -52,6 +51,14 @@ return {
                 clangdFileStatus = true,
               },
             },
+            pyright = {
+               capabilities = {
+                offsetEncoding = { "utf-8" },
+              },
+            },
+            vls = { },
+            yamlls = {},
+            tsserver = {}
           },
         },
     },
