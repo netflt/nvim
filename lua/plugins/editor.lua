@@ -6,13 +6,10 @@
 -- * override the configuration of LazyVim plugins
 return {
     -- disable plugins
-    { "folke/lazydev.nvim", enabled = false },
     { "folke/tokyonight.nvim", enabled = false },
     { "catppuccin/nvim", enabled = false },
     { "folke/flash.nvim", enabled = false },
     { "echasnovski/mini.ai", enabled = false },
-    { "williamboman/mason.nvim", enabled = false },
-    { "williamboman/mason-lspconfig.nvim", enabled = false },
     { "stevearc/dressing.nvim", enabled = false },
     { "Bilal2453/luvit-meta", enabled = false },
     { "mfussenegger/nvim-lint", enabled = false },

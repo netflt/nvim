@@ -71,7 +71,6 @@ function GetCommitSHA()
     if not bcache then
         return ""
     end
-    bcache:get_blame() 
     local blame = assert(bcache.blame)
     local blm_win = api.nvim_get_current_win()
     local cursor = unpack(api.nvim_win_get_cursor(blm_win))

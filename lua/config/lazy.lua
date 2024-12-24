@@ -30,6 +30,7 @@ require("lazy").setup({
         -- add LazyVim and import its plugins
         { 
             "LazyVim/LazyVim", 
+            version = "v13.0.0",
             opts = { colorscheme = 'terafox', },
             import = "lazyvim.plugins"
         },
@@ -43,14 +44,14 @@ require("lazy").setup({
         lazy = false,
         -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
         -- have outdated releases, which may break your Neovim install.
-        version = false, -- always use the latest git commit
-        -- version = "*", -- try installing the latest stable version for plugins that support semver
+        --version = false, -- always use the latest git commit
+        version = "*", -- try installing the latest stable version for plugins that support semver
     },
-    install = { colorscheme = { "terafox" } },
+    install = { colorscheme = { "terafox" } }, 
     checker = {
         enabled = false, -- check for plugin updates periodically
         notify = false, -- notify on update
-    }, -- automatically check for plugin updates
+    }, -- automatically check for plugin updqates
     performance = {
         rtp = {
             -- disable some rtp plugins
