@@ -41,6 +41,12 @@ return {
         keys = {},
         config = function()
             local dap = require("dap")
+            dap.adapters.gdb = {
+                id = 'gdb',
+                type = 'executable',
+                command = 'gdb',
+                args = {'-i','dap'}
+            }
             dap.adapters.lldb = {
                 id = 'lldb',
                 type = 'executable',
