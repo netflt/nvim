@@ -7,7 +7,6 @@
 return {
     -- disable plugins
     { "folke/tokyonight.nvim", enabled = false },
-    { "catppuccin/nvim", enabled = false },
     { "folke/flash.nvim", enabled = false },
     { "echasnovski/mini.ai", enabled = false },
     { "williamboman/mason.nvim", enabled = false },
@@ -43,10 +42,13 @@ return {
         end
     },
     {
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
         keys = {
             { "<leader><space>" , ":", desc = "Switch Command mode",},
         },
+        config = function ()
+            require('fzf-lua').setup({'telescope'})
+        end
     },
     {
         "folke/noice.nvim",
@@ -56,6 +58,31 @@ return {
                 bottom_search = false,
             },
         } 
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            preset = "classic",
+        } 
+    },
+    {
+       'Saghen/blink.cmp',
+       opts = {
+            keymap = {
+                ["<CR>"] = { "accept", "fallback" },
+                ["<Tab>"] = {
+                    "select_next",
+                    "snippet_forward",
+                    "fallback",
+                },
+                ["<S-Tab>"] = {
+                    "select_prev",
+                    "snippet_backward",
+                    "fallback",
+                }
+            }
+        }
     }
     
 }

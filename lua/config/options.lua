@@ -20,4 +20,4 @@ vim.opt.fillchars = {
     vert = "▕", -- alternatives │
     diff = " ", -- alternatives = ⣿ ░ ─
 }
-
+vim.opt.clipboard = 'unnamedplus'

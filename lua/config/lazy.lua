@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
+        { "catppuccin/nvim", name = 'catppuccin', enabled = false },
         { 
             "EdenEast/nightfox.nvim",
             priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -30,7 +31,6 @@ require("lazy").setup({
         -- add LazyVim and import its plugins
         { 
             "LazyVim/LazyVim", 
-            version = "v13.0.0",
             opts = { colorscheme = 'terafox', },
             import = "lazyvim.plugins"
         },
