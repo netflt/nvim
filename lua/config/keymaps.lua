@@ -55,8 +55,6 @@ map("n", "q", ":q<CR>", opt)
 map("n", "qq", ":q!<CR>", opt)
 map("n", "Q", ":qa!<CR>", opt)
 
-map("t", "<Esc>", "<C-\\><C-n>", opt)
-
 --cmake
 map("n", "<leader>cg", ":CMakeGenerate<CR>", opt)
 map("n", "<leader>cb", ":CMakeBuild<CR>", opt)
