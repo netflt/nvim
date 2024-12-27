@@ -19,7 +19,6 @@ return {
     { "echasnovski/mini.icons", enabled = false },
     { "nvim-treesitter/nvim-treesitter-textobjects", enabled = false },
     { "nvim-treesitter/nvim-treesitter", enabled = false } ,
-    { "folke/ts-comments.nvim", enabled = false },
     { 
         'kevinhwang91/nvim-ufo', 
         dependencies = 'kevinhwang91/promise-async',
