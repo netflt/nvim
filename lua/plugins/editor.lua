@@ -9,6 +9,8 @@ return {
     { "folke/tokyonight.nvim", enabled = false },
     { "folke/flash.nvim", enabled = false },
     { "echasnovski/mini.ai", enabled = false },
+    { "williamboman/mason.nvim", enabled = false },
+    { "williamboman/mason-lspconfig.nvim", enabled = false },
     { "stevearc/dressing.nvim", enabled = false },
     { "Bilal2453/luvit-meta", enabled = false },
     { "mfussenegger/nvim-lint", enabled = false },
