@@ -18,6 +18,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
+        version = false, 
         opts = {
             signcolumn = false,
             current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
