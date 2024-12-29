@@ -50,7 +50,7 @@ return {
             dap.adapters.lldb = {
                 id = 'lldb',
                 type = 'executable',
-                command = '/opt/homebrew/opt/llvm@18/bin/lldb-dap',
+                command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
                 name = 'lldb'
             }
            
