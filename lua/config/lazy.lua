@@ -31,7 +31,7 @@ require("lazy").setup({
         -- add LazyVim and import its plugins
         { 
             "LazyVim/LazyVim", 
-            version = "v14.6.0",
+            version = "*",
             opts = { colorscheme = 'terafox', },
             import = "lazyvim.plugins"
         },

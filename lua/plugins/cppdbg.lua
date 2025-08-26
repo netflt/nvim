@@ -1,6 +1,7 @@
 return {
     {
         'rcarriga/nvim-dap-ui',
+        enabled = false,
         event = "VeryLazy",
         dependencies = {
             'mfussenegger/nvim-dap',
@@ -37,6 +38,7 @@ return {
     },
     {
         "mfussenegger/nvim-dap",
+        enabled = false,
         event = "VeryLazy",
         keys = {},
         config = function()
@@ -67,5 +69,17 @@ return {
             vim.fn.sign_define('DapLogPoint',            { text='', texthl='green', linehl='DapBreakpoint', numhl='DapBreakpoint' })
         end,
     },
+    {
+        "sakhnik/nvim-gdb",
+        event = "BufEnter",
+        keys = {
+            { "<leader>de" , ":GdbDebugStop<CR>", desc = "Stop Debug",},
+            { "<leader>dc" , ":GdbBreakpointClearAll<CR>", desc = "Clear All Breakpoints",},
+            { "<F6>" , ":GdbNext<CR>", desc = "Step Over",},
+            { "<F7>" , ":GdbStep<CR>", desc = "Step Into",},
+            { "<F8>" , ":GdbFinish<CR>", desc = "Step Out",},
+            { "<F9>" , ":GdbBreakpointToggle<CR>", desc = "Breakpoint Toggle",},
+        }
+    }
 }
 
