@@ -69,10 +69,12 @@ function GetCommitSHA()
     if not bcache then
         return ""
     end
+    bcache:get_blame()
     local blame = assert(bcache.blame)
     local blm_win = api.nvim_get_current_win()
-    local cursor = unpack(api.nvim_win_get_cursor(blm_win))
-    local cur_sha = blame[cursor].commit.abbrev_sha
+    --local cursor = unpack(api.nvim_win_get_cursor(blm_win))
+    local lnum = api.nvim_win_get_cursor(blm_win)[1]
+    local cur_sha = blame.entries[lnum].commit.abbrev_sha
     if string.match(cur_sha, "00000000") then
         return ""
     else
@@ -101,9 +103,9 @@ function DiffviewCurrentCommit()
 end
 
 map("n", "go", ":DiffviewClose<CR>", opt)
-map("n", "gh", ":DiffviewOpen<CR>", opt)
-map("n", "gb", ":lua DiffviewHistory()<CR>", opt)
-map("n", "gB", ":lua DiffviewCurrentCommit()<CR>", opt)
+map("n", "gd", ":DiffviewOpen<CR>", opt)
+map("n", "gh", ":lua DiffviewHistory()<CR>", opt)
+map("n", "gb", ":lua DiffviewCurrentCommit()<CR>", opt)
 
 --dap debug
 --map ("n",
