@@ -75,11 +75,8 @@ return {
         keys = {
             { "<leader>de" , ":GdbDebugStop<CR>", desc = "Stop Debug",},
             { "<leader>dc" , ":GdbBreakpointClearAll<CR>", desc = "Clear All Breakpoints",},
-            { "<F6>" , ":GdbNext<CR>", desc = "Step Over",},
-            { "<F7>" , ":GdbStep<CR>", desc = "Step Into",},
-            { "<F8>" , ":GdbFinish<CR>", desc = "Step Out",},
-            { "<F9>" , ":GdbBreakpointToggle<CR>", desc = "Breakpoint Toggle",},
-        }
+        },
+
     }
 }
 
