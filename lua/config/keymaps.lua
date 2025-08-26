@@ -102,8 +102,8 @@ function DiffviewCurrentCommit()
     end 
 end
 
-map("n", "go", ":DiffviewClose<CR>", opt)
-map("n", "gd", ":DiffviewOpen<CR>", opt)
+map("n", "<leader>go", ":DiffviewClose<CR>", opt)
+map("n", "<leader>gd", ":DiffviewOpen<CR>", opt)
 map("n", "gh", ":lua DiffviewHistory()<CR>", opt)
 map("n", "gb", ":lua DiffviewCurrentCommit()<CR>", opt)
 
