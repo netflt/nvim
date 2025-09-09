@@ -6,16 +6,16 @@ local map = vim.api.nvim_set_keymap
 
 -- 复用 opt 参数
 local opt = { noremap = true, silent = true }
-map("n", "r", "<C-r>", opt)
+--map("n", "r", "<C-r>", opt)
 -- 取消 s 默认功能
-map("n", "s", "", opt)
+-- map("n", "s", "", opt)
 -- windows 分屏快捷键
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
+map("n", "<leader>sv", ":vsp<CR>", opt)
+map("n", "<leader>sh", ":sp<CR>", opt)
 -- 关闭当前
-map("n", "sc", "<C-w>c", opt)
+map("n", "<leader>sc", "<C-w>c", opt)
 -- 关闭其他
-map("n", "so", "<C-w>o", opt)
+map("n", "<leader>so", "<C-w>o", opt)
 
 -- Shift + hl  左右窗口之间跳转
 map("n", "H", "<C-w>h", opt)
