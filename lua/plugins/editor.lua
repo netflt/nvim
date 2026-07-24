@@ -8,15 +8,15 @@ return {
     -- disable plugins
     { "folke/tokyonight.nvim", enabled = false },
     { "folke/flash.nvim", enabled = false },
-    { "echasnovski/mini.ai", enabled = false },
-    { "williamboman/mason.nvim", enabled = false },
-    { "williamboman/mason-lspconfig.nvim", enabled = false },
+    { "nvim-mini/mini.icons", enabled = false },
+    { "nvim-mini/mini.ai", enabled = false },
+    { "mason-org/mason.nvim", enabled = false },
+    { "mason-org/mason-lspconfig.nvim", enabled = false },
     { "stevearc/dressing.nvim", enabled = false },
     { "Bilal2453/luvit-meta", enabled = false },
     { "mfussenegger/nvim-lint", enabled = false },
     { "nvimdev/dashboard-nvim", enabled = false },
     { "windwp/nvim-ts-autotag", enabled = false },
-    { "echasnovski/mini.icons", enabled = false },
     { "nvim-treesitter/nvim-treesitter-textobjects", enabled = false },
     { "nvim-treesitter/nvim-treesitter", enabled = false } ,
     { 
@@ -82,6 +82,13 @@ return {
                 }
             }
         }
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
     }
-    
-}
+} 
